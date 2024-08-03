@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+
+<div class="container"> 
+    <div class="score">
+        <h1>Results</h1>
+        <p>Your score: {{ score }} / {{ total_score }}</p>
+    </div>
+    <div class="quiz-review">
+        {% for question in questions %}
+            <div class="question-block">
+                <p class="question-text"><strong>{{ question.text }}</strong></p>
+                <ul class="choices">
+                    {% for choice in question.choices %}
+                        <li>{{ choice }}</li>
+                    {% endfor %}
+                </ul>
+                <p class="answer-info">
+                    <strong>Your answer:</strong> {{ user_answers['question_' + loop.index0|string] }}
+                </p>
+                <p class="answer-info">
+                    <strong>Correct answer:</strong> {{ answers[loop.index0] }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="backlink"><a class="back-link" href="/">Take Quiz Again</a></div>
+</div>
+
+</body>
+</html>

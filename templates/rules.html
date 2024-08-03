@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Rules and Regulations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rules.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='favicon.ico') }}" alt="Falcon Icon" class="header-icon">
+        <h1>Falcon Quiz</h1>
+    </header>
+    <div class="rule"><h2>Rules and Regulations</h2></div>
+
+    <div class="rules">
+        <ul>
+            <li>The topic you choose must be a valid and relevant topic.</li>
+            <li>Special characters are not allowed in the topic field.</li>
+            <li>During the quiz, you must mark all multiple-choice questions (MCQs) to be able to submit.</li>
+        </ul>
+    </div>
+  
+</body>
+</html>

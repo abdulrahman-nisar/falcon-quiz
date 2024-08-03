@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz on {{ topic }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='quiz.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='favicon.ico') }}" alt="Falcon Icon" class="header-icon">
+        <h1>Falcon Quiz</h1>
+    </header>
+    <div class="container">
+        <h2>Quiz on {{ topic }}</h2>
+        <form action="/submit" method="POST">
+            {% for question in questions %}
+            <div class="question">
+                <p>{{ question.text }}</p>
+                <ul class="choices">
+                    {% for choice in question.choices %}
+                    <li>
+                        <label>
+                            <input type="radio" name="{{question.text}}" value="{{ choice }}" required>
+                            {{ choice }}
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+            <div class="button-container">
+                <a class="back-link" href="/">Go Back</a>
+                <button type="submit">Submit</button>
+                
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
