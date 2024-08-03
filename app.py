@@ -29,7 +29,7 @@ questions_store = []        #Store the list of all questions
 answers = []                #Store the list of answers
 
 app = Flask(__name__)
-AI71_API_KEY = "ai71-api-bd8523eb-052d-478a-9967-fa02af9c98af"
+AI71_API_KEY = "ai71-api-b9c562fa-5175-459c-b812-ace5ca3044ee"
 
 def generate_quiz(topic, num_questions):
     """Create the quiz"""
